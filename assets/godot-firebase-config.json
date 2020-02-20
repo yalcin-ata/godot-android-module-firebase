@@ -1,0 +1,23 @@
+{
+	"Analytics": true,
+	"AdMob": true,
+	"AdMobMediationUnity": true,
+	"AdMobAdUnits": {
+		"TestAds": true,
+		"AppId": "ca-app-pub-ADMOB_APP_ID",
+		"Banner": true,
+		"BannerId": "ca-app-pub-ADMOB_BANNER_AD_UNIT_ID",
+		"BannerGravity": "TOP",
+		"Interstitial": true,
+		"InterstitialId": "ca-app-pub-ADMOB_INTERSTITIAL_AD_UNIT_ID",
+		"RewardedVideo": true,
+		"RewardedVideoId": "ca-app-pub-ADMOB_REWARDEDVIDEO_AD_UNIT_ID"
+	},
+	"Authentication" : true,
+	"Firestore" : true,
+	"Storage" : true,
+	"InAppMessaging" : {
+		"hint" : "This will always be enabled. To remove In-App Messaging edit gradle.conf and remove implementation 'com.google.firebase:firebase-inappmessaging-display:19.0.3'"
+	},
+	"CloudMessaging" : true
+}
