@@ -43,14 +43,24 @@ Shows the rewarded video.
 ### Callbacks fired when AdMob is initialized:
 <pre>
 tag=Firebase from=AdMob key=Banner data=on_ad_loaded
-tag=Firebase from=AdMob key=Banner data=on_ad_failed_to_load
+tag=Firebase from=AdMob key=Banner data=on_ad_failed_to_load:errorCode
 
 tag=Firebase from=AdMob key=Interstitial data=on_ad_loaded
-tag=Firebase from=AdMob key=Interstitial data=on_ad_failed_to_load
+tag=Firebase from=AdMob key=Interstitial data=on_ad_failed_to_load:errorCode
 
 tag=Firebase from=AdMob key=RewardedVideo data={status:on_rewarded_ad_loaded, unit_id:ca-app-pub-AD_UNIT_ID}
-tag=Firebase from=AdMob key=RewardedVideo data={status:on_rewarded_ad_failed_to_load, unit_id:ca-app-pub-AD_UNIT_ID}
+tag=Firebase from=AdMob key=RewardedVideo data={status:on_rewarded_ad_failed_to_load:errorCode, unit_id:ca-app-pub-AD_UNIT_ID}
 </pre>
+
+`on_ad_failed_to_load:errorCode` shows the error code which comes from AdMob. [See here the error codes](https://developers.google.com/android/reference/com/google/android/gms/ads/AdRequest#constants_1).
+Usually they are:
+
+| code | error |
+|:---:|---|
+| 0 | `ERROR_CODE_INTERNAL_ERROR` |
+| 1 | `ERROR_CODE_INVALID_REQUEST` |
+| 2 | `ERROR_CODE_NETWORK_ERROR` |
+| 3 | `ERROR_CODE_NO_FILL` |
 
 ### Other AdMob callbacks
 <pre>

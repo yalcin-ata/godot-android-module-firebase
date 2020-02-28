@@ -173,7 +173,7 @@ public class AdMob {
             @Override
             public void onAdFailedToLoad(int errorCode) {
                 bannerLoaded = false;
-                Utils.callScriptFunc("AdMob", "Banner", "on_ad_failed_to_load");
+                Utils.callScriptFunc("AdMob", "Banner", "on_ad_failed_to_load:" + errorCode);
             }
         });
 
@@ -239,7 +239,7 @@ public class AdMob {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Utils.callScriptFunc("AdMob", "Interstitial", "on_ad_failed_to_load");
+                Utils.callScriptFunc("AdMob", "Interstitial", "on_ad_failed_to_load:" + errorCode);
             }
 
             @Override
@@ -324,7 +324,7 @@ public class AdMob {
 
             @Override
             public void onRewardedAdFailedToLoad(int errorCode) {
-                Utils.callScriptFunc("AdMob", "RewardedVideo", buildStatus(unitid, "on_rewarded_ad_failed_to_load"));
+                Utils.callScriptFunc("AdMob", "RewardedVideo", buildStatus(unitid, "on_rewarded_ad_failed_to_load:" + errorCode));
                 //reloadRewardedVideo(unitid);
             }
         });
