@@ -70,7 +70,7 @@ public class Storage {
 
         fileName = godotIo.getDataDir() + "/" + fileName;
         Uri file = Uri.fromFile(new File(fileName));
-        StorageReference fileRef = storageRef.child(file.toString());
+        StorageReference fileRef = storageRef.child(file.getLastPathSegment());
         uploadTask = fileRef.putFile(file);
 
         uploadTask.addOnFailureListener(new OnFailureListener() {
@@ -94,24 +94,24 @@ public class Storage {
             return;
         }
 
-        StorageReference ref = firebaseStorage.getReference().child(fileName);
-        File localFile = null;
-        try {
-            localFile = File.createTempFile("test", "txt");
-            ref.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                    Utils.callScriptFunc("Storage", "download", true);
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception exception) {
-                    Utils.callScriptFunc("Storage", "download", false);
-                }
-            });
-        } catch (IOException e) {
-            Utils.logWarn("Storage download() there was an exception while referencing localFile: " + e.toString());
-        }
+		fileName = godotIo.getDataDir() + "/" + fileName;
+        final String deviceFileName = fileName;
+		Uri file = Uri.fromFile(new File(fileName));
+		
+        StorageReference ref = firebaseStorage.getReference().child(file.getLastPathSegment());
+        File localFile = new File(fileName);
+		ref.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
+			@Override
+			public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
+                //On success, data is the absolute path of the downloaded file
+				Utils.callScriptFunc("Storage", "download", deviceFileName);
+			}
+		}).addOnFailureListener(new OnFailureListener() {
+			@Override
+			public void onFailure(@NonNull Exception exception) {
+				Utils.callScriptFunc("Storage", "download", false);
+			}
+		});
     }
 
     private boolean isInitialized() {
