@@ -1,4 +1,7 @@
 # godot-android-module-firebase
+### Important:
+__An updated version of this plugin for the new Godot 3.2.2 Android plugin system (v1) can be found here:__ https://github.com/yalcin-ata/godot-android-plugin-firebase
+
 Godot Android module for Firebase, written from scratch. This project replaces https://github.com/yalcin-ata/godot-plugin-firebase.
 
 This works for [Godot Engine](https://godotengine.org/)'s stable version 3.2 (not beta).
