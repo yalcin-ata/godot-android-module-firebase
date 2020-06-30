@@ -175,7 +175,7 @@ Done!
    * For **release**
      * Run in shell:
      
-       <pre>keytool -list -v -alias <YOUR-ALIAS> -keystore release.keystore</pre>
+       <pre>keytool -list -v -alias YOUR-ALIAS -keystore release.keystore</pre>
        (type afterwards your password)
      
      * Copy calculated SHA-1.
@@ -189,7 +189,7 @@ Done!
    * For **debug**
      * Run in shell:
        
-       <pre>keytool -list -v -alias <YOUR-ALIAS> -keystore debug.keystore</pre>
+       <pre>keytool -list -v -alias YOUR-ALIAS -keystore debug.keystore</pre>
        (type afterwards your password)
      * Copy calculated SHA-1.
      
