@@ -176,7 +176,7 @@ No methods to call from the app. Follow instructions at [Firebase: Send a test m
 Subscribes to "topicName".<br />
 **Callback** is `tag=Firebase from=CloudMessaging key=subscribe data=true` on success, `data=false` otherwise.
 
-<pre>firebase.cloudmessaging_ubsubscribe_from_topic("topicName") -> void</pre>
+<pre>firebase.cloudmessaging_unsubscribe_from_topic("topicName") -> void</pre>
 Unsubscribes from "topicName".<br />
 **Callback** is `tag=Firebase from=CloudMessaging key=unsubscribe data=true"` (data is always *true*).
 
